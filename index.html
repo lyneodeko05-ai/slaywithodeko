@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slay_with_Odeko — Knotless, Spanish & Crochet Braids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0809;
+    --text:#8F8F8F;
+    --text-on-dark:#E7E5E6;
+    --paper:#0F0D0E;
+    --paper-dim:#1B1719;
+    --oxblood:#E0518F;
+    --oxblood-deep:#B23D72;
+    --gold:#D9A6B3;
+    --line: rgba(255,255,255,0.12);
+    --serif:'Playfair Display', Georgia, serif;
+    --sans:'Inter', -apple-system, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;
+  }
+  .brand{
+    font-family:var(--serif);font-weight:700;font-size:1.1rem;letter-spacing:0.01em;
+    white-space:nowrap;
+  }
+  .brand span{color:var(--oxblood);}
+  nav.links{display:flex;gap:34px;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;}
+  nav.links a{position:relative;padding-bottom:4px;transition:color .2s;}
+  nav.links a:hover{color:var(--oxblood);}
+  .nav-cta{
+    background:var(--ink);color:var(--text-on-dark);
+    padding:10px 22px;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;
+    border:1px solid var(--ink);transition:.2s;
+  }
+  .nav-cta:hover{background:var(--oxblood);border-color:var(--oxblood);}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--ink);
+    display:flex;justify-content:center;min-height:70vh;align-items:center;
+  }
+  .hero-text{
+    color:var(--text-on-dark);
+    display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    padding:96px 32px;position:relative;overflow:hidden;
+    max-width:760px;width:100%;
+  }
+  .hero-eyebrow{
+    font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:22px;
+  }
+  .hero-text h1{
+    font-family:var(--serif);font-weight:600;font-size:3.4rem;line-height:1.08;
+    margin-bottom:24px;
+  }
+  .hero-text h1 em{font-style:italic;color:var(--gold);font-weight:500;}
+  .hero-text p{
+    font-size:1.02rem;color:rgba(243,243,239,0.78);max-width:420px;margin-bottom:36px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--oxblood);color:#fff;padding:15px 30px;font-size:0.85rem;
+    letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--oxblood);
+    transition:.2s;
+  }
+  .btn-primary:hover{background:var(--oxblood-deep);}
+  .btn-ghost{
+    border:1px solid rgba(243,243,239,0.4);color:var(--text-on-dark);
+    padding:15px 30px;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;
+    transition:.2s;
+  }
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  .hero-photo{position:relative;overflow:hidden;background:var(--paper-dim);}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
+  .hero-photo .caption{
+    position:absolute;bottom:24px;right:24px;
+    background:rgba(26,24,21,0.72);color:var(--text-on-dark);
+    padding:8px 16px;font-size:0.72rem;letter-spacing:0.05em;
+    font-style:italic;font-family:var(--serif);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:96px 0;}
+  .section-head{margin-bottom:56px;max-width:560px;}
+  .section-eyebrow{
+    font-size:0.76rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--oxblood);
+    margin-bottom:14px;
+  }
+  .section-head h2{font-family:var(--serif);font-weight:600;font-size:2.3rem;}
+
+  /* ---------- SERVICES MENU ---------- */
+  .menu-note{
+    font-size:0.88rem;color:rgba(170,170,170,0.7);margin-top:-32px;margin-bottom:48px;
+    font-style:italic;
+  }
+  .menu-list{border-top:1px solid var(--line);}
+  .menu-item{
+    display:grid;grid-template-columns:auto 1fr auto auto;align-items:baseline;
+    gap:18px;padding:22px 0;border-bottom:1px solid var(--line);
+  }
+  .menu-item .idx{font-family:var(--serif);font-size:0.8rem;color:var(--gold);font-style:italic;}
+  .menu-item .name{font-family:var(--serif);font-weight:600;font-size:1.18rem;}
+  .menu-item .len{font-size:0.78rem;color:rgba(170,170,170,0.65);letter-spacing:0.04em;text-transform:uppercase;}
+  .menu-item .price{font-family:var(--serif);font-weight:600;font-size:1.18rem;color:var(--oxblood);white-space:nowrap;}
+  @media (max-width:640px){
+    .menu-item{grid-template-columns:1fr auto;row-gap:4px;}
+    .menu-item .idx{display:none;}
+    .menu-item .len{grid-column:1;}
+    .menu-item .price{grid-column:2;grid-row:1 / span 2;align-self:center;}
+  }
+
+  /* ---------- HOURS / AVAILABILITY ---------- */
+  .hours-block{
+    background:var(--ink);color:var(--text-on-dark);border-radius:0;
+    padding:56px;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;
+  }
+  .days-strip{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap;}
+  .day-pill{
+    flex:1;min-width:70px;text-align:center;padding:14px 8px;
+    border:1px solid rgba(243,243,239,0.22);font-size:0.78rem;letter-spacing:0.04em;
+  }
+  .day-pill.open{border-color:var(--gold);color:var(--gold);}
+  .day-pill.closed{background:rgba(123,30,43,0.25);border-color:var(--oxblood);color:rgba(243,243,239,0.55);}
+  .hours-block h3{font-family:var(--serif);font-size:1.5rem;margin-bottom:10px;}
+  .hours-block .time{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.1rem;margin-bottom:18px;}
+  .hours-block p{color:rgba(243,243,239,0.72);font-size:0.94rem;max-width:360px;}
+  .deposit-card{
+    background:rgba(243,243,239,0.05);border:1px solid rgba(243,243,239,0.18);
+    padding:28px;
+  }
+  .deposit-card .amt{font-family:var(--serif);font-size:2.4rem;color:var(--gold);font-weight:600;}
+  .deposit-card .amt span{font-size:1rem;color:var(--text-on-dark);font-family:var(--sans);}
+  .deposit-card ul{margin-top:18px;padding-left:18px;font-size:0.88rem;color:rgba(243,243,239,0.78);}
+  .deposit-card li{margin-bottom:8px;}
+
+  /* ---------- BOOKING FORM ---------- */
+  .booking-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:start;}
+  .booking-steps{counter-reset:step;}
+  .step{display:flex;gap:18px;margin-bottom:30px;}
+  .step .num{
+    counter-increment:step;width:34px;height:34px;border:1px solid var(--oxblood);
+    color:var(--oxblood);font-family:var(--serif);font-weight:600;font-size:0.95rem;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .step h4{font-family:var(--serif);font-size:1.08rem;margin-bottom:4px;}
+  .step p{font-size:0.88rem;color:rgba(170,170,170,0.7);}
+  .mpesa-box{
+    margin-top:8px;background:var(--paper-dim);border-left:3px solid var(--oxblood);
+    padding:16px 18px;font-size:0.92rem;
+  }
+  .mpesa-box b{font-family:var(--serif);}
+
+  form.booking{background:#151213;border:1px solid var(--line);padding:36px;}
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block;font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;
+    color:rgba(170,170,170,0.65);margin-bottom:8px;
+  }
+  .field input, .field select{
+    width:100%;padding:13px 14px;border:1px solid var(--line);background:#1F1B1D;
+    font-family:var(--sans);font-size:0.95rem;color:var(--text);
+  }
+  .field input:focus, .field select:focus{outline:2px solid var(--gold);border-color:var(--gold);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .confirm-row{
+    display:flex;gap:10px;align-items:flex-start;font-size:0.86rem;color:rgba(170,170,170,0.75);
+    margin-bottom:24px;
+  }
+  .confirm-row input{margin-top:3px;}
+  .submit-btn{
+    width:100%;background:var(--oxblood);color:#fff;padding:16px;border:none;
+    font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;transition:.2s;
+  }
+  .submit-btn:hover{background:var(--oxblood-deep);}
+  .form-note{font-size:0.78rem;color:rgba(150,150,150,0.6);margin-top:14px;text-align:center;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:rgba(243,243,239,0.7);padding:56px 0 28px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(243,243,239,0.14);}
+  .foot-brand{font-family:var(--serif);font-size:1.4rem;color:var(--text-on-dark);}
+  .foot-brand span{color:var(--gold);}
+  .foot-col h5{font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .foot-col a, .foot-col p{display:block;font-size:0.9rem;margin-bottom:8px;color:rgba(243,243,239,0.72);}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:0.78rem;color:rgba(243,243,239,0.45);flex-wrap:wrap;gap:10px;}
+
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr;}
+    .hero-photo{min-height:380px;order:-1;}
+    .hours-block{grid-template-columns:1fr;}
+    .booking-grid{grid-template-columns:1fr;}
+    nav.links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">SLAY<span>_</span>WITH<span>_</span>ODEKO</div>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#hours">Hours</a>
+      <a href="#book">Book</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#book" class="nav-cta">Book Now</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Nairobi · We Come To You</div>
+    <h1>Skip the salon —<br>we bring the <em>salon</em><br>to you.</h1>
+    <p>Enjoy expert braiding in the comfort of your home, with flawless knotless, boho, Spanish, fluffy, kinky, jumbo, crochet, sew-ins, and more, all finished with care and precision.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Book Your Slot</a>
+      <a href="#services" class="btn-ghost">See Prices</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery" style="padding-bottom:48px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Our Work</div>
+      <h2>Slay, every time.</h2>
+    </div>
+    <div class="hero-photo" style="aspect-ratio:auto;height:auto;">
+      <img src="portfolio.png" alt="Knotless, Spanish and boho braid styles by Slay_with_Odeko" style="height:auto;">
+      <div class="caption">Real clients, real results</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">The Menu</div>
+      <h2>Services &amp; Prices</h2>
+    </div>
+    <p class="menu-note">All prices below are for installation only — hair/extensions are not included and are purchased separately.</p>
+
+    <div class="menu-list">
+      <div class="menu-item">
+        <span class="idx">I</span>
+        <span class="name">Knotless Braids</span>
+        <span class="len">Normal length</span>
+        <span class="price">KES 2,000</span>
+      </div>
+      <div class="menu-item">
+        <span class="idx">II</span>
+        <span class="name">Knotless Braids</span>
+        <span class="len">Butt length</span>
+        <span class="price">KES 3,000</span>
+      </div>
+      <div class="menu-item">
+        <span class="idx">III</span>
+        <span class="name">Normal Braids</span>
+        <span class="len">Normal length</span>
+        <span class="price">KES 2,000</span>
+      </div>
+      <div class="menu-item">
+        <span class="idx">IV</span>
+        <span class="name">Normal Braids</span>
+        <span class="len">Butt length</span>
+        <span class="price">KES 2,500</span>
+      </div>
+      <div class="menu-item">
+        <span class="idx">V</span>
+        <span class="name">Spanish Braids</span>
+        <span class="len">Normal length</span>
+        <span class="price">KES 2,500</span>
+      </div>
+      <div class="menu-item">
+        <span class="idx">VI</span>
+        <span class="name">Spanish Braids</span>
+        <span class="len">Butt length</span>
+        <span class="price">KES 3,000</span>
+      </div>
+      <div class="menu-item">
+        <span class="idx">VII</span>
+        <span class="name">Crochet</span>
+        <span class="len">&nbsp;</span>
+        <span class="price">KES 2,000</span>
+      </div>
+      <div class="menu-item">
+        <span class="idx">VIII</span>
+        <span class="name">Sew-In</span>
+        <span class="len">&nbsp;</span>
+        <span class="price">KES 2,000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS + DEPOSIT -->
+<section class="section" id="hours" style="padding-top:0;">
+  <div class="wrap">
+    <div class="hours-block">
+      <div>
+        <h3>Opening Hours</h3>
+        <div class="time">Monday – Saturday</div>
+        <div class="days-strip">
+          <div class="day-pill open">MON</div>
+          <div class="day-pill open">TUE</div>
+          <div class="day-pill open">WED</div>
+          <div class="day-pill open">THU</div>
+          <div class="day-pill open">FRI</div>
+          <div class="day-pill open">SAT</div>
+          <div class="day-pill closed">SUN</div>
+        </div>
+        <p style="margin-top:22px;">Closed every Sunday. Exact time slots are confirmed by WhatsApp once you submit a booking request below, since each style takes a different amount of chair time.</p>
+      </div>
+      <div class="deposit-card">
+        <div class="amt">KES 500 <span>deposit</span></div>
+        <ul>
+          <li>Paid before any slot is confirmed.</li>
+          <li>Deposit is <b style="color:var(--text-on-dark);">non-refundable</b> once paid.</li>
+          <li>Balance is paid in person after your style is done.</li>
+          <li>Sent via M-Pesa to the number below.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section" id="book">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Reserve Your Seat</div>
+      <h2>Book an Appointment</h2>
+    </div>
+
+    <div class="booking-grid">
+      <div>
+        <div class="booking-steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <h4>Send your KES 500 deposit</h4>
+              <p>Via M-Pesa, before you submit the form.</p>
+              <div class="mpesa-box">
+                Send to: <b>0704 617 566</b><br>
+                (Lipa na M-Pesa — Send Money)
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <h4>Fill in the form</h4>
+              <p>Add your name, chosen style and the M-Pesa code from your payment.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <h4>Confirm on WhatsApp</h4>
+              <p>Submitting opens WhatsApp with your details pre-filled — just hit send. Your exact time slot is confirmed there.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="booking" id="bookingForm">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" required placeholder="e.g. Achieng Wanjiru">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" required placeholder="07XX XXX XXX">
+          </div>
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service" required>
+              <option value="">Select a style</option>
+              <option>Knotless Braids – Normal length (KES 2,000)</option>
+              <option>Knotless Braids – Butt length (KES 3,000)</option>
+              <option>Normal Braids – Normal length (KES 2,000)</option>
+              <option>Normal Braids – Butt length (KES 2,500)</option>
+              <option>Spanish Braids – Normal length (KES 2,500)</option>
+              <option>Spanish Braids – Butt length (KES 3,000)</option>
+              <option>Crochet (KES 2,000)</option>
+              <option>Sew-In (KES 2,000)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="date">Preferred date</label>
+            <input type="date" id="date" required>
+          </div>
+          <div class="field">
+            <label for="time">Preferred time</label>
+            <input type="time" id="time" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="mpesa">M-Pesa code for your KES 500 deposit</label>
+          <input type="text" id="mpesa" required placeholder="e.g. QFT4XXXXXX">
+        </div>
+        <div class="confirm-row">
+          <input type="checkbox" id="agree" required>
+          <label for="agree">I understand the KES 500 deposit is non-refundable and hair/extensions are not included in the prices above.</label>
+        </div>
+        <button type="submit" class="submit-btn">Send Booking Request via WhatsApp</button>
+        <p class="form-note">This opens WhatsApp with your details ready to send. Your slot is only confirmed once Slay_with_Odeko replies.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">SLAY<span>_</span>WITH<span>_</span>ODEKO</div>
+        <p style="margin-top:10px;max-width:260px;">Knotless, Spanish &amp; classic braids, crochet and sew-ins — by appointment, Monday to Saturday.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="tel:+254704617566">+254 704 617 566</a>
+        <a href="https://wa.me/254704617566" target="_blank">WhatsApp</a>
+      </div>
+      <div class="foot-col">
+        <h5>Hours</h5>
+        <p>Mon – Sat</p>
+        <p>Closed Sundays</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Slay_with_Odeko. All rights reserved.</span>
+      <span>Deposits are non-refundable.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const mpesa = document.getElementById('mpesa').value.trim();
+
+    const message =
+`New booking request — Slay_with_Odeko
+
+Name: ${name}
+Phone: ${phone}
+Service: ${service}
+Preferred date: ${date}
+Preferred time: ${time}
+M-Pesa code (KES 500 deposit): ${mpesa}`;
+
+    const url = `https://wa.me/254704617566?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
